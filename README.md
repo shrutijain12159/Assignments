@@ -1,6 +1,10 @@
 # Assignments
 Bluepineapple Submissions Shruti
 
+**HTML & CSS Submissions**
+https://replit.com/@shrutijain12159/HTMlCSS-Assignments#index.html
+
+
 Program List:
 1. Count Number of occurance of each digit in the given number.
 2. Perfect numbers between the given range (1 to N).
