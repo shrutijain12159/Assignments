@@ -1,5 +1,5 @@
 import java.util.Scanner;
-import java.lang.*;
+// import java.lang.*;
 public class BookManagementSystem
 {
     class Node{
@@ -15,19 +15,33 @@ public class BookManagementSystem
     public Node head=null;
     public Node current=null;
     
+    public boolean isCircular()
+    {
+        Node currentNode = head;   
+        if(head==null)
+            return true;
+        while(true)
+        {
+            currentNode = currentNode.next;
+            if(currentNode == head)
+                return true;
+            else if(currentNode == null)
+                return false;
+            
+        }
+    }
+
     public  void InsertBookAtEnd(String bname) {
         Node newnode=new Node(bname);
         if(head==null)
         {
             head=newnode;
             current=newnode;
-          	System.out.println("Book inserted successfully!");
         }
         else
         {
             current.next=newnode;
             current=newnode; 
-            System.out.println("Book inserted successfully!");
         }
     }
 
@@ -37,7 +51,6 @@ public class BookManagementSystem
         {
             head=newnode;
             current=newnode;
-            System.out.println("Book inserted successfully!");
         }
         else if(pos>capacity || pos<1)
         {
@@ -49,7 +62,6 @@ public class BookManagementSystem
             {
                 newnode.next=head;
                 head=newnode;
-                System.out.println("Book inserted successfully!");
             }
             else
             {
@@ -61,7 +73,6 @@ public class BookManagementSystem
                 }
                 newnode.next=temp.next;
                 temp.next=newnode;
-                System.out.println("Book inserted successfully!");
             }
             
         }
@@ -163,7 +174,7 @@ public class BookManagementSystem
         ob.capacity=sc.nextInt();
 
         while (flag) {
-            System.out.println(" 1:Insert book at end of the list \n 2:Inert book at particular position \n 3:Delete book from position \n 4:Display Book names list \n 5:Display List size \n 6:Search for any book \n 7:Exit");
+            System.out.println(" 1:Insert book at end of the list \n 2:Inert book at particular position \n 3:Delete book from position \n 4:Display Book names list \n 5:Display List size \n 6:Search for any book \n 7:Exit \n 8: check if list is circular or simple list");
             choice=sc.nextInt();
             
             switch(choice)
@@ -214,8 +225,11 @@ public class BookManagementSystem
                 case 7:
                     flag=false;
                     break;
+                case 8:
+                System.out.println("is your list circular = " + ob.isCircular());
             }
 
         }
+        sc.close();
     }
 }
